@@ -1,7 +1,12 @@
 /*-------------------------------------------------------------------------------
 	  Currency Exchange API 
 	-------------------------------------------------------------------------------*/
-	function get_exchange_rate(base_currency) {
+	function asd(currency_obj){
+		$(".base-currency").each(function(index){
+			
+		})
+	}
+	function get_exchange_rate(base_currency,load_dom) {
         let params = {
             "base":base_currency
         }
@@ -10,6 +15,7 @@
           })
           .then(function (response) {
             console.log(response.data.rates);
+			  load_dom(response.data.rates)
           })
           .catch(function (error) {
             console.log(error);
@@ -19,5 +25,6 @@
           });  
 	}
 $(function(){
-    get_exchange_rate("USD")
+	$(".currency")
+    get_exchange_rate("USD",load_dom)
 })
